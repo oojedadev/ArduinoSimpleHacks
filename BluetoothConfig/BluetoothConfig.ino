@@ -1,7 +1,14 @@
 #include <SoftwareSerial.h>
-SoftwareSerial MyBluetoothModule(10, 11);
+
+const byte rxPin = 10;
+const byte txPin = 11;
+
+SoftwareSerial MyBluetoothModule(rxPin, txPin);
 
 void setup() {
+  pinMode(rxPin, INPUT);
+  pinMode(txPin, OUTPUT);
+  
   MyBluetoothModule.begin(9600);
   Serial.begin(9600);
 }
